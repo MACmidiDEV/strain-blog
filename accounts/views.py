@@ -57,5 +57,8 @@ def registration(request):
     })    
 
 def user_profile(request):
-    user = User.objects.get(email=request.user.email)    
-    return render(request, 'profile.html', {"profile":user})
+    if request.user.is_authenticated:
+        user = User.objects.get(email=request.user.email)    
+        return render(request, 'profile.html', {"profile":user}) 
+    if not request.user.is_authenticated:
+        return redirect(reverse('registration'))
