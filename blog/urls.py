@@ -18,15 +18,16 @@ from django.contrib import admin
 from django.views.generic import RedirectView
 from django.views.static import serve
 from accounts import urls as urls_accounts
-from home import urls as urls_home
+from strains import urls as urls_strains
+from strains.views import all_strains
 from .settings import MEDIA_ROOT
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', RedirectView.as_view(url='posts/')),
+    url(r'^$', RedirectView.as_view(url='strains/')),
     url(r'accounts/', include(urls_accounts)),
-    url(r'home/', include(urls_home)),
     url(r'posts/', include('posts.urls')),
+    url(r'strains/', include('strains.urls')),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
 ]
