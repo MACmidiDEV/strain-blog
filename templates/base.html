@@ -30,11 +30,22 @@
                         <li><a href="{% url 'new_post' %}">New Post</a></li>
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
                         
                         </ul>
                 </div>
             </div>
         </nav>
+
+        {% if messages %}
+        <div class="alert alert-success fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            {% for message in messages %}
+            <p><strong>{{message}}</strong></p>
+            {% endfor %}
+            {{message}}
+        </div>
+        {% endif %}
 
         <div id="masthead">
             <div class="container">

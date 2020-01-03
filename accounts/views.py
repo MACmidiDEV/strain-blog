@@ -15,8 +15,8 @@ def myadmin(request):
 @login_required
 def logout(request):
     auth.logout(request)
-    messages.success(request, "success_ LoggedOut.")
-    return redirect(reverse('index'))  
+    messages.success(request, "Sucessfully Logged OUT.")   
+    return redirect(reverse('strains'))  
 
 def login(request):
     if request.user.is_authenticated:
@@ -28,7 +28,7 @@ def login(request):
                                     password=request.POST['password'])
         if user:
             auth.login(user=user, request=request)
-            messages.success(request, "User... loggedIN")         
+            messages.success(request, "Sucessfully Logged IN.")         
             return redirect(reverse('strains'))                           
         else:
             login_form.add_error(None, "Username or Password Inncorrect")    
@@ -47,7 +47,7 @@ def registration(request):
                                      password1=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "newUser Thank you for registering")
+                messages.success(request, "Thank you for registering")
                 return redirect(reverse('strains'))
             else:
                 messages.error(request, "Registration failed please try again later.")    
