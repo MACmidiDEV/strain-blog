@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import RedirectView
 from django.views.static import serve
+from search import urls as urls_search
 from accounts import urls as urls_accounts
 from strains import urls as urls_strains
 from strains.views import all_strains
@@ -29,5 +30,6 @@ urlpatterns = [
     url(r'accounts/', include(urls_accounts)),
     url(r'posts/', include('posts.urls')),
     url(r'strains/', include('strains.urls')),
+    url(r'search/', include(urls_search)),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
 ]

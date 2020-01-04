@@ -123,6 +123,45 @@ a, a:hover {
     font-weight: bold;
 }
 
+
+
+.strain {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+caption p {
+    word-wrap: break-word;
+}
+
+/* .row.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.panel-default {
+    border-color: transparent;
+    padding: 0 10px;
+}
+
+.panel-body {
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.strain-description {
+    min-height: 40px;
+} */
+
+.container {
+    width: 80%;
+}
+
 @media screen and (min-width: 768px) {
     #masthead h1 {
         font-size: 80px;

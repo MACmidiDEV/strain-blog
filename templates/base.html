@@ -4,6 +4,7 @@
     <head>
         <title>Strain -  Strains-Blog</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -31,8 +32,12 @@
                         <li><a href="{% url 'profile' %}">Profile</a></li>
                         <li><a href="{% url 'login' %}">Login</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
-                        
-                        </ul>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-2x fa-desktop"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -52,20 +57,25 @@
                 <div class="row">
                     <h1> Strains
                         <p id="logo" class="lead">Explore what strains work for you.</p>
+                        <input class="form-control" id="myInput" type="text" placeholder="Query Strains">
                     </h1>
                 </div>
             </div>
         </div>
     
-        <div class="container">
+        
+        <div class="container">            
             <div class="row">
+                
                 <div class="col-md-12">
                     <div class="panel">
-                        <div class="panel-body">
+                        <div class="panel-body" id="pb">          
+                                             
                             <!--blogpost entries-->
                             {% block content %}
                             {% endblock %}
                             <!--blogpost entries-->
+                            
                         </div>
                     </div>
                 </div>
@@ -76,5 +86,17 @@
                 <p>Designed and Developed by Miguel Camacho</p>
             </div>
         </footer>
+
+        <script>
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#pb *").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+        </script>
+
     </body>
 </html>

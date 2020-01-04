@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'posts',
+    'strainDex',
     'home',
     'strains',
     'accounts',
